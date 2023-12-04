@@ -32,8 +32,6 @@ This dataset contains 12 CSV (Comma-separated Values) files at 12 different stat
 
 ## Setup environment
 
-### This project using python==3.9.2
-
 1. Clone this repository into your local
 
 ```
