@@ -51,3 +51,5 @@ $ streamlit run dashboard/app.py
 ## Use streamlit app
 
 A new tab will open on your browser. That's Streamlit app!
+
+Stop the application program by ctrl + c.
