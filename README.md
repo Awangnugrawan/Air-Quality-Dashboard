@@ -1,7 +1,7 @@
 # 🌍 Air Quality Dashboard
 ## Visualization of Air Quality at The 12 Station
 
-You can run this repository on website by clicking this URL 
+You can run this repository on website by clicking this URL [Air Quality Dashboard](https://air-quality-dashboard-kg63nfuupixsmtdbxp5crk.streamlit.app/)
 
 ## Preview Dashboard
 [Video demo](https://github.com/Awangnugrawan/Air-Quality-Dashboard/blob/master/dashboard/Demo%20dashboard.mp4) 
