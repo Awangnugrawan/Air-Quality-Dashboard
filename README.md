@@ -35,7 +35,7 @@ This dataset contains 12 CSV (Comma-separated Values) files at 12 different stat
 1. Clone this repository into your local
 
 ```
-$ git clone this repo
+$ git clone this repo : https://github.com/Awangnugrawan/Air-Quality-Dashboard 
 ```
 
 2. Install the environment to run this app
