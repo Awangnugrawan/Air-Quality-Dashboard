@@ -5,12 +5,8 @@
 You can run this repository on website by clicking this URL [Air Quality Dashboard](https://air-quality-dashboard-kg63nfuupixsmtdbxp5crk.streamlit.app/)
 
 ## Preview Dashboard
+![Demo dashboard](dashboard/Demo%20Dashboard.gif)
 
-Screenshoot Dashboard:
-![SS dashboard](https://github.com/Awangnugrawan/Air-Quality-Dashboard/assets/72252754/1218e2fd-7293-4843-afb8-a2f0553d04db)
-![SS dashboard 2](https://github.com/Awangnugrawan/Air-Quality-Dashboard/assets/72252754/958bcf5f-ec37-4a4a-b2e7-364700deab79)
-![SS dashboard 3](https://github.com/Awangnugrawan/Air-Quality-Dashboard/assets/72252754/005947bf-1ff8-4bcd-b412-f0e56c9c7bcd)
-![SS dashboard 4](https://github.com/Awangnugrawan/Air-Quality-Dashboard/assets/72252754/65425341-a9c0-481e-99d5-1210b34f6d13)
 
 ## Dataset
 

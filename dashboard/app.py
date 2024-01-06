@@ -1,6 +1,6 @@
 """
 Author: Awang Mulya Nugrawan
-Date: 04/12/2023
+Date: 07/01/2024
 This is the app.py module.
 Usage:
 - Initiate all functions for streamlit dashboard
@@ -100,7 +100,7 @@ with st.sidebar:
         value=[min_date, max_date],
     )
     st.divider()
-    st.caption("Copyright (C) Awang Nugrawan 2023")
+    st.caption("Copyright (C) Awang Nugrawan 2024")
 
 air_quality_df = air_quality_df[
     (air_quality_df["datetime"] >= str(start_date))
@@ -154,7 +154,7 @@ sns.barplot(
     x="CO mean",
     y="station",
     data=sorted_mean_CO_df.head(),
-    palette=["b", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"],
+    palette=["#72BCD4", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"],
     ax=ax[0],
 )
 ax[0].set_ylabel("Station", fontsize=30)
@@ -166,7 +166,7 @@ sns.barplot(
     x="CO mean",
     y="station",
     data=sorted_mean_NO2_df.head(),
-    palette=["r", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"],
+    palette=["#7ACACB", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"],
     ax=ax[1],
 )
 ax[1].set_ylabel("Station", fontsize=30)
@@ -194,7 +194,6 @@ st.subheader(
     tab1,
     tab2,
 ) = st.tabs(["CO", "NO2"])
-
 with tab1:
     last_1_year = wanshouxigong_monthly_df.tail(12)
     sorted_last_1_year = last_1_year.sort_values(by="PM2.5")
@@ -242,6 +241,19 @@ with tab1:
         color="r",
         label="PM2.5",
     )
+
+    # Add label for the highest value of PM2.5
+    max_PM2_date = last_1_year.loc[last_1_year["PM2.5"].idxmax()]["datetime"]
+    max_PM2_value = round(last_1_year["PM2.5"].max())
+    ax.annotate(
+        f"{max_PM2_value}",
+        xy=(max_PM2_date, max_PM2_value),
+        xytext=(max_PM2_date, max_PM2_value + 2),
+        arrowprops=dict(facecolor="black", arrowstyle="wedge,tail_width=0.7", lw=0.7),
+        fontsize=15,
+        ha="center",
+    )
+
     ax.plot(
         last_1_year["datetime"],
         last_1_year["PM10"],
@@ -249,6 +261,18 @@ with tab1:
         linewidth=2,
         color="b",
         label="PM10",
+    )
+
+    # Add label for the highest value of PM10
+    max_PM10_date = last_1_year.loc[last_1_year["PM10"].idxmax()]["datetime"]
+    max_PM10_value = round(last_1_year["PM10"].max())
+    ax.annotate(
+        f"{max_PM10_value}",
+        xy=(max_PM10_date, max_PM10_value),
+        xytext=(max_PM10_date, max_PM10_value + 2),
+        arrowprops=dict(facecolor="black", arrowstyle="wedge,tail_width=0.7", lw=0.7),
+        fontsize=14,
+        ha="center",
     )
 
     ax.set_title(
@@ -267,6 +291,7 @@ with tab1:
         st.write(
             "The station with the highest level of CO pollution is Wanshouxigong station. From the results of data visualization using the line chart, it is known that the data for the last 1 year on PM 10 and PM 2.5 levels tend to fluctuate. The lowest levels occurred in August 2016 and peaked in December 2016. The increase in PM 10 and PM 2.5 levels occurred from August to December 2016. However, it decreased again in January-February 2017."
         )
+
 with tab2:
     last_1_year = wanliu_monthly_df.tail(12)
     sorted_last_1_year = last_1_year.sort_values(by="PM2.5")
@@ -314,6 +339,18 @@ with tab2:
         color="r",
         label="PM2.5",
     )
+
+    # Add label for the highest value of PM2.5
+    max_PM2_date = last_1_year.loc[last_1_year["PM2.5"].idxmax()]["datetime"]
+    max_PM2_value = round(last_1_year["PM2.5"].max())
+    ax.annotate(
+        f"{max_PM2_value}",
+        xy=(max_PM2_date, max_PM2_value),
+        xytext=(max_PM2_date, max_PM2_value + 2),
+        arrowprops=dict(facecolor="black", arrowstyle="wedge,tail_width=0.7", lw=0.7),
+        fontsize=15,
+        ha="center",
+    )
     ax.plot(
         last_1_year["datetime"],
         last_1_year["PM10"],
@@ -321,6 +358,18 @@ with tab2:
         linewidth=2,
         color="b",
         label="PM10",
+    )
+
+    # Add label for the highest value of PM10
+    max_PM10_date = last_1_year.loc[last_1_year["PM10"].idxmax()]["datetime"]
+    max_PM10_value = round(last_1_year["PM10"].max())
+    ax.annotate(
+        f"{max_PM10_value}",
+        xy=(max_PM10_date, max_PM10_value),
+        xytext=(max_PM10_date, max_PM10_value + 2),
+        arrowprops=dict(facecolor="black", arrowstyle="wedge,tail_width=0.7", lw=0.7),
+        fontsize=14,
+        ha="center",
     )
 
     ax.set_title("Average Monthly PM 2.5 and PM 10 at Wanliu Station (Last 12 Months)")
@@ -348,7 +397,7 @@ st.subheader("Order of Average Particulate Matter PerStation (Low to High)")
 
 with tab1:
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(7, 7))
-    sns.barplot(x="PM2.5 mean", y="station", data=sorted_mean_PM25_df)
+    sns.barplot(x="PM2.5 mean", y="station", data=sorted_mean_PM25_df, palette="Reds_r")
     ax.set_ylabel("Station", fontsize=13)
     ax.set_xlabel("Average PM 2.5", fontsize=13)
     ax.set_title("Order of Average PM 2.5 Per Station (Low to High)", fontsize=15)
@@ -359,7 +408,7 @@ with tab1:
 
 with tab2:
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(7, 7))
-    sns.barplot(x="PM10 mean", y="station", data=sorted_mean_PM10_df)
+    sns.barplot(x="PM10 mean", y="station", data=sorted_mean_PM10_df, palette="Blues_r")
     ax.set_ylabel("Station", fontsize=13)
     ax.set_xlabel("Average PM10", fontsize=13)
     ax.set_title("Order of Average PM10 Per Station (Low to High)", fontsize=15)
